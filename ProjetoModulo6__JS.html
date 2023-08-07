@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Módulo 6</title>
+</head>
+
+<script>
+    // [nome, email, telefone]
+
+let contatos = [
+  [ "João", "joao@gmail.com", "11998774533"],
+  [ "Maria", "maria@gmail.com", "11933227566"],
+  [ "Pedro", "pedro@hotmail.com", "11987654567"],
+];
+
+let menu = "1 - Exibir todos os contatos\n2 - Cadastrar um novo contato\n3 - Remover contato pelo nome\n4 - Buscar contato pelo nome"
+
+let opcao = prompt(menu)
+
+switch(opcao) {
+  case '1': {
+    alert(contatos)
+		break;
+  }  
+
+  case '2': {
+		let nome = prompt("Entre com o nome a ser inserido na lista de contatos")
+		let email = prompt("Entre com o e-mail")
+		let telefone = Number(prompt("Entre com o telefone '(XX)999999999'"))
+		let telefoneRegex = /(?:^\([0]?[1-9]{2}\)|^[0]?[1-9]{2}[\.-\s]?)[9]?[1-9]\d{3}[\.-\s]?\d{4}$/
+		let emailRegex = /\b[\w\.-]+@[\w\.-]+\.\w{2,4}/
+		
+		if (telefoneRegex.test(telefone) && emailRegex.test(email)) {
+			var contato4 = [nome, email, telefone]
+			contatos.push(contato4)
+		}
+		else{
+			alert("As informações de: 'Email' ou 'Telefone' não estão corretos. O cadastro não foi efetuado")
+		}
+		
+		alert(contatos)
+		
+		break;
+  }  
+
+  case '3': {
+		
+		
+		let removerElementos = prompt("Qual elemento deseja remover?")
+		
+		contatosCopy = ["João", "joao@gmail.com", "11998774533"],
+		contatosCopyy = ["Maria", "maria@gmail.com", "11933227566"],		
+		contatosCopyyy = ["Pedro", "pedro@hotmail.com", "11987654567"],
+		contatosCopiados = contatosCopy.concat(contatosCopyy, contatosCopyyy);
+		
+		if (removerElementos == "João"){
+			contatosCopiados.splice(0, 3);
+		}
+		
+		else if (removerElementos == "Maria"){
+			contatosCopiados.splice(3, 3);
+		}
+						
+		else if (removerElementos == "Pedro"){
+			contatosCopiados.splice(6, 3);
+		}
+		
+		else {
+			alert("Contato não encontrado na listagem")
+		}
+			
+		alert("Listagem atualizada:  " + contatosCopiados)
+		
+		break;
+		
+	}
+
+  case '4': {
+
+    let buscarContato = prompt("Qual contato deseja buscar?")
+		
+		contatosCopy = ["João", "joao@gmail.com", "11998774533"],
+		contatosCopyy = ["Maria", "maria@gmail.com", "11933227566"],		
+		contatosCopyyy = ["Pedro", "pedro@hotmail.com", "11987654567"],
+		contatosCopiados = contatosCopy.concat(contatosCopyy, contatosCopyyy);
+		
+		if (buscarContato == "João"){
+			alert(contatosCopy)
+		}
+		
+		else if (buscarContato == "Maria"){
+			alert(contatosCopyy)
+		}
+		
+		else if (buscarContato == "Pedro"){
+			alert(contatosCopyyy)
+		}
+		
+		else {
+			alert("Contato não encontrado na listagem")
+		}		
+}
+		
+		break;
+}
+
+
+
+</script>
+
+
+
+
+
+<body>
+    
+
+</body>
+</html>
